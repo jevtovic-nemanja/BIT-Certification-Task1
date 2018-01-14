@@ -2,14 +2,6 @@
     var request = new XMLHttpRequest();
     var url = BASE_URL + "candidates";
     
-    function appendChildren () {
-        var element = arguments[0];
-        for (var i = 1; i < arguments.length; i++) {
-            var child = arguments[i];
-            element.appendChild(child);
-        }
-    }
-    
     request.open("GET", url);
     
     request.onload = function () {
@@ -19,21 +11,25 @@
                 var listContainer = document.querySelector(".listContainer");
                 var div = document.createElement("div");
                 var image = document.createElement("img");
-                var name = document.createElement("h3");
-                var email = document.createElement("p");
+                var name = document.createElement("h4");
+                var email = document.createElement("small");
                 var defaultAvatar = "assets/images/avatar.png";
 
-                div.classList.add("card");
+                div.classList.add("card", "w-75", "p-3", "mx-auto", "my-2");
 
-                image.src = candidate.avatar
-                                ? candidate.avatar
-                                : defaultAvatar;
-
+                image.classList.add("card-img-top", "rounded-circle", "w-75", "mx-auto");
+                image.src = candidate.avatar ? candidate.avatar : defaultAvatar;
                 image.alt = "Candidate picture";
-                name.textContent = candidate.name;
-                email.textContent = candidate.email;
 
-                appendChildren(div, image, name, email);
+                name.textContent = candidate.name;
+                name.classList.add("card-title", "text-center", "my-2");
+
+                email.textContent = candidate.email;
+                email.classList.add("card-text", "text-center");
+
+                div.appendChild(image);
+                div.appendChild(name);
+                div.appendChild(email);
                 listContainer.appendChild(div);
             })
         } else {
