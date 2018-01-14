@@ -1,0 +1,11 @@
+@import "palette";
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color: $linen;
+    font-size: 100%;
+}
+
+@import "nav";
