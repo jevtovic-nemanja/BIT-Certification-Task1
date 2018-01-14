@@ -1,53 +1,29 @@
 nav {
-    width: 100%;
     background-color: $ice;
     color: white;
-    box-sizing: border-box;
-    padding: 1em 3em;
-    display: grid;
-    grid-template-columns: 9fr 1fr;
-    grid-gap: 2em;
-    font-size: 0.75em;
-
-    @media screen and (min-width: 576px) {
-        font-size: 1em;
-    }
-
-    h2 {
-        margin: 0;
-        display: inline-block;
-        padding: 10px;
-    }
 
     button {
+        background-color: $water;
         color: white;
-        background: $water;
-        text-decoration: none;
-        border: none;
-        border-radius: 100%;
+        float: right;
 
         .nav-text {
-                display: none;
+            display: none;
         }
 
         @media screen and (min-width: 576px) {
-            padding: 10px 20px;
-            font-size: 1.05em;
-            border-radius: 0;
-
             .nav-icon {
                 display: none;
             }
 
             .nav-text {
-               margin: 0;
                display: block;
             }
         }
     }
 
     button:hover {
-        background: whitesmoke;
+        background-color: whitesmoke;
         color: $water;
     }
 }
