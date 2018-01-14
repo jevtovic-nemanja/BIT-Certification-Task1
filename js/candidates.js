@@ -21,8 +21,12 @@
                 var image = document.createElement("img");
                 var name = document.createElement("h4");
                 var email = document.createElement("p");
+                var defaultAvatar = "assets/images/avatar.png";
 
-                image.src = candidate.avatar;
+                image.src = candidate.avatar
+                                ? candidate.avatar
+                                : defaultAvatar;
+
                 image.alt = "Candidate picture";
                 name.textContent = candidate.name;
                 email.textContent = candidate.email;
