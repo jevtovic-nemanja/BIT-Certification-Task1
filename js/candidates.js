@@ -10,12 +10,14 @@
             candidates.map(function (candidate) {
                 var listContainer = document.querySelector(".listContainer");
                 var div = document.createElement("div");
+                var card = document.createElement("div");
                 var image = document.createElement("img");
                 var name = document.createElement("h4");
                 var email = document.createElement("small");
                 var defaultAvatar = "assets/images/avatar.png";
 
-                div.classList.add("card", "w-75", "p-3", "mx-auto", "my-2");
+                div.classList.add("offset-1", "col-10", "offset-md-0", "col-md-6", "offset-lg-0", "col-lg-4", "offset-xl-0", "col-xl-3");
+                card.classList.add("card", "w-100", "p-3", "mx-auto", "my-2");
 
                 image.classList.add("card-img-top", "rounded-circle", "w-75", "mx-auto");
                 image.src = candidate.avatar ? candidate.avatar : defaultAvatar;
@@ -27,9 +29,10 @@
                 email.textContent = candidate.email;
                 email.classList.add("card-text", "text-center");
 
-                div.appendChild(image);
-                div.appendChild(name);
-                div.appendChild(email);
+                card.appendChild(image);
+                card.appendChild(name);
+                card.appendChild(email);
+                div.appendChild(card);
                 listContainer.appendChild(div);
             })
         } else {
