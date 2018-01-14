@@ -51,9 +51,7 @@
     request.onload = function () {
         if (request.status >= 200 && request.status < 400) {
             var candidates = JSON.parse(request.responseText);
-            candidates.map(function (candidate) {
-                displayCandidate(candidate);
-            })
+            candidates.map(displayCandidate);
         } else {
             displayErrorMessage();
         }
