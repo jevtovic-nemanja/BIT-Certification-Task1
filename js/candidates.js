@@ -16,13 +16,15 @@
         if (request.status >= 200 && request.status < 400) {
             var candidates = JSON.parse(request.responseText);
             candidates.map(function (candidate) {
-                var main = document.querySelector("main");
+                var listContainer = document.querySelector(".listContainer");
                 var div = document.createElement("div");
                 var image = document.createElement("img");
                 var name = document.createElement("h4");
                 var email = document.createElement("p");
                 var defaultAvatar = "assets/images/avatar.png";
 
+                div.classList.add("card");
+                
                 image.src = candidate.avatar
                                 ? candidate.avatar
                                 : defaultAvatar;
@@ -32,15 +34,15 @@
                 email.textContent = candidate.email;
 
                 appendChildren(div, image, name, email);
-                main.appendChild(div);  
+                listContainer.appendChild(div);
             })
         } else {
-            main.innerHTML = "<p>Looks like there was some kind of error. Don't worry, we're looking into it!</p>";
+            listContainer.innerHTML = "<p>Looks like there was some kind of error. Don't worry, we're looking into it!</p>";
         }
     };
     
     request.onerror = function () {
-        main.innerHTML = "<p>Looks like the server is not responding. Don't worry, we're looking into it!</p>";
+        listContainer.innerHTML = "<p>Looks like the server is not responding. Don't worry, we're looking into it!</p>";
     };
 
     request.send();
