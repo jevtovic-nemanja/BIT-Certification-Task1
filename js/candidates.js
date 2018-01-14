@@ -19,12 +19,12 @@
                 var listContainer = document.querySelector(".listContainer");
                 var div = document.createElement("div");
                 var image = document.createElement("img");
-                var name = document.createElement("h4");
+                var name = document.createElement("h3");
                 var email = document.createElement("p");
                 var defaultAvatar = "assets/images/avatar.png";
 
                 div.classList.add("card");
-                
+
                 image.src = candidate.avatar
                                 ? candidate.avatar
                                 : defaultAvatar;

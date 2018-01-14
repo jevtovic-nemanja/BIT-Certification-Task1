@@ -4,9 +4,9 @@ html, body {
     height: 100%;
     width: 100%;
     margin: 0;
-    background-color: $linen;
+    background-color: whitesmoke;
     font-size: 100%;
 }
 
 @import "nav";
-@import "card";
+@import "cards";
