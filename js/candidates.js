@@ -1,14 +1,14 @@
 (function () {
     var request = new XMLHttpRequest();
     var url = BASE_URL + "candidates";
-    
+    var listContainer = document.querySelector(".listContainer");
+
     request.open("GET", url);
-    
+
     request.onload = function () {
         if (request.status >= 200 && request.status < 400) {
             var candidates = JSON.parse(request.responseText);
             candidates.map(function (candidate) {
-                var listContainer = document.querySelector(".listContainer");
                 var div = document.createElement("div");
                 var card = document.createElement("div");
                 var image = document.createElement("img");
@@ -36,13 +36,13 @@
                 listContainer.appendChild(div);
             })
         } else {
-            listContainer.innerHTML = "<p>Looks like there was some kind of error. Don't worry, we're looking into it!</p>";
+            listContainer.innerHTML = "<h5 class=\"mx-auto text-justify mt-4 p-3\">Looks like there was some kind of error. Don't worry, we're looking into it!</h5>";
         }
     };
-    
+
     request.onerror = function () {
-        listContainer.innerHTML = "<p>Looks like the server is not responding. Don't worry, we're looking into it!</p>";
+        listContainer.innerHTML = "<h5 class=\"mx-auto text-justify mt-4 p-3\">Looks like the server is not responding. Don't worry, we're looking into it!</h5>";
     };
 
     request.send();
-}) ();
+})();
