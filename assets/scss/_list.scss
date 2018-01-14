@@ -1,0 +1,21 @@
+.listContainer {
+    margin-bottom: 10px;
+
+    .card {
+        background-color: $linen;
+    }
+
+    .card:hover {
+        -webkit-box-shadow: $water 0px 0 20px;
+        -moz-box-shadow: $water 0 0 20px;
+        box-shadow: $water 0 0 20px;
+    }
+
+    h4 {
+        color: $water;
+    }
+
+    small {
+        color: $water;
+    }
+}
