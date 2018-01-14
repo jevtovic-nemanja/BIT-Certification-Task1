@@ -39,4 +39,8 @@ nav {
 hr {
   margin: 0; }
 
+.form-control:focus {
+  border-color: #88bbd6;
+  box-shadow: 0 0 0 0.2rem rgba(136, 187, 214, 0.25); }
+
 /*# sourceMappingURL=main.css.map */

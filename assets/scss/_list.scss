@@ -23,3 +23,8 @@
 hr {
     margin: 0;
 }
+
+.form-control:focus {
+    border-color: $water;
+    box-shadow: 0 0 0 0.2rem rgba(136, 187, 214, .25);
+}
