@@ -48,7 +48,15 @@ $(function () {
     }
 
     function displayReports(reports) {
-        
+        var title = $("<h4>").text("Reports");
+        $("table").before(title);
+
+        addTableRow("head", ["Company", "Interview Date", "Status"]);
+
+        $.each(reports, function(index, report) {
+            var reportData = [report.companyId, report.interviewDate, report.status, "O"];
+            addTableRow("body", reportData);
+        })
     }
 
     function displayErrorMessage(element, cause) {
@@ -56,6 +64,10 @@ $(function () {
         errorMessage.text(cause)
             .attr("class", "mx-auto text-justify mt-4 p-3");
         element.append(errorMessage);
+    }
+
+    function addTableRow(type, data) {
+
     }
 
     onPageLoad();
