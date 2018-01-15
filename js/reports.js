@@ -36,19 +36,21 @@ $(function () {
     }
 
     function displayCandidate(candidate) {
-        var dob = new Date(candidate.birthday);
-        var month = dob.getMonth() + 1;
-        var birthday = dob.getDate() + "." + month + "." + dob.getFullYear();
-
         $(".candidate-img").attr("src", candidate.avatar);
         $(".candidate-name").text(candidate.name);
         $(".candidate-email").text(candidate.email);
-        $(".candidate-dob").text(birthday);
+        $(".candidate-dob").text(formatDate(candidate.birthday));
         $(".candidate-edu").text(candidate.education);
     }
 
     function displayReports(reports) {
-        
+        var title = $("<h4>").text("Reports");
+        $("table").before(title);
+
+        $.each(reports, function (index, report) {
+            var reportData = [report.companyName, formatDate(report.interviewDate), report.status];
+            addTableRow(reportData);
+        })
     }
 
     function displayErrorMessage(element, cause) {
@@ -56,6 +58,27 @@ $(function () {
         errorMessage.text(cause)
             .attr("class", "mx-auto text-justify mt-4 p-3");
         element.append(errorMessage);
+    }
+
+    function addTableRow(data) {
+        var row = $("<tr>");
+
+        $.each(data, function (index, item) {
+            var cell = $("<td>").text(item);
+            row.append(cell);
+        })
+
+        var view = $("<td>").html($("<i>").attr("class", "fa fa-eye"));
+        row.append(view);
+
+        $("tbody").append(row);
+    }
+
+    function formatDate(date) {
+        var dob = new Date(date);
+        var month = dob.getMonth() + 1;
+        var birthday = dob.getDate() + "." + month + "." + dob.getFullYear();
+        return birthday;
     }
 
     onPageLoad();
