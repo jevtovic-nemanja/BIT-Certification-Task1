@@ -1,32 +1,37 @@
 (function () {
 
-    //Global variables
-    var listContainer = document.querySelector(".listContainer");
     var candidates = [];
 
-    //Fetch data
-    var request = new XMLHttpRequest();
+    function onPageLoad() {
+        var searchInput = document.querySelector(".search");
+        searchInput.addEventListener("input", filterList);
+        fetchData();
+    }
 
-    var url = BASE_URL + "candidates";
-    request.open("GET", url);
+    function fetchData() {
+        var request = new XMLHttpRequest();
+        var url = BASE_URL + "candidates";
+        
+        request.open("GET", url);
 
-    request.onload = function () {
-        if (request.status >= 200 && request.status < 400) {
-            candidates = JSON.parse(request.responseText);
-            displayCandidates(candidates);
-        } else {
-            displayErrorMessage("Looks like there was some kind of error. Don't worry, we're looking into it!");
-        }
-    };
+        request.onload = function () {
+            if (request.status >= 200 && request.status < 400) {
+                candidates = JSON.parse(request.responseText);
+                displayCandidates(candidates);
+            } else {
+                displayErrorMessage("Looks like there was some kind of error. Don't worry, we're looking into it!");
+            }
+        };
 
-    request.onerror = function () {
-        displayErrorMessage("Looks like the server is not responding. Don't worry, we're looking into it!");
-    };
+        request.onerror = function () {
+            displayErrorMessage("Looks like the server is not responding. Don't worry, we're looking into it!");
+        };
 
-    request.send();
+        request.send();
+    }
 
-    //Display functions
     function displayCandidates(candidates) {
+        var listContainer = document.querySelector(".listContainer");
         listContainer.innerHTML = "";
 
         if (candidates.length) {
@@ -62,7 +67,7 @@
                 link.appendChild(card);
                 link.setAttribute("href", "reports.html");
                 link.setAttribute("data-id", candidate.id);
-                link.addEventListener("click", function(event) {
+                link.addEventListener("click", function (event) {
                     var id = link.getAttribute("data-id");
                     sessionStorage.setItem("id", id);
                 });
@@ -76,21 +81,22 @@
     }
 
     function displayErrorMessage(cause) {
+        var listContainer = document.querySelector(".listContainer");
         var errorElement = document.createElement("h5");
+
         errorElement.textContent = cause;
         errorElement.classList.add("mx-auto", "text-justify", "mt-4", "p-3");
         listContainer.appendChild(errorElement);
     }
 
-    //Search candidates
-    var searchInput = document.querySelector(".search");
-    searchInput.addEventListener("input", filterList);
-
     function filterList() {
+        var searchInput = document.querySelector(".search");
         var searchItem = searchInput.value.toLowerCase();
         var filteredList = candidates.filter(function (candidate) {
             return candidate.name.toLowerCase().includes(searchItem);
         })
         displayCandidates(filteredList);
     }
+
+    onPageLoad();
 })();
