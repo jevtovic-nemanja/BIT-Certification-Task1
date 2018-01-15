@@ -1,10 +1,6 @@
 $(function () {
 
     function onPageLoad() {
-        fetchData();
-    }
-
-    function fetchData() {
         fetchCandidateInfo();
         fetchReports();
     }
