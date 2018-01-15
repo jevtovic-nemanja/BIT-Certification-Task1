@@ -36,7 +36,12 @@ $(function () {
     }
 
     function displayCandidate(candidate) {
-        $(".candidate-img").attr("src", candidate.avatar);
+        var defaultAvatar = "assets/images/avatar.png";
+        var image = candidate.avatar
+            ? candidate.avatar
+            : defaultAvatar;
+
+        $(".candidate-img").attr("src", image);
         $(".candidate-name").text(candidate.name);
         $(".candidate-email").text(candidate.email);
         $(".candidate-dob").text(formatDate(candidate.birthday));
