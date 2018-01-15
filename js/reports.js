@@ -36,7 +36,12 @@ $(function () {
     }
 
     function displayCandidate(candidate) {
-        $(".candidate-img").attr("src", candidate.avatar);
+        var defaultAvatar = "assets/images/avatar.png";
+        var image = candidate.avatar
+            ? candidate.avatar
+            : defaultAvatar;
+
+        $(".candidate-img").attr("src", image);
         $(".candidate-name").text(candidate.name);
         $(".candidate-email").text(candidate.email);
         $(".candidate-dob").text(formatDate(candidate.birthday));
@@ -44,8 +49,8 @@ $(function () {
     }
 
     function displayReports(reports) {
-        var title = $("<h4>").text("Reports");
-        $("table").before(title);
+        var title = $("<h4>").text("Reports").attr("class", "my-3");
+        $("table").before(title).removeClass("hide");
 
         $.each(reports, function (index, report) {
             var reportData = [report.companyName, formatDate(report.interviewDate), report.status];
@@ -68,7 +73,8 @@ $(function () {
             row.append(cell);
         })
 
-        var view = $("<td>").html($("<i>").attr("class", "fa fa-eye"));
+        var view = $("<td>").attr("class", "text-center")
+                            .html($("<i>").attr("class", "fa fa-eye"));
         row.append(view);
 
         $("tbody").append(row);

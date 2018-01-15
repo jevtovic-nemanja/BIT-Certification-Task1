@@ -52,10 +52,16 @@ hr {
   width: 50%; }
   @media screen and (min-width: 768px) {
     .candidate-img {
-      width: 75%; } }
+      width: 90%; } }
   @media screen and (min-width: 992px) {
     .candidate-img {
       width: 100%; } }
+
+.img-position {
+  text-align: center; }
+  @media screen and (min-width: 768px) {
+    .img-position {
+      text-align: left; } }
 
 .candidate-info p {
   color: #88bbd6; }
@@ -64,12 +70,17 @@ hr {
     margin-top: 1em; } }
 @media screen and (min-width: 992px) {
   .candidate-info {
-    margin-top: 1.5em; }
+    margin-top: 1.5em;
+    margin-left: 0.5em; }
     .candidate-info h5 {
       margin-top: 1em;
       margin-bottom: 1.5em !important; } }
 @media screen and (min-width: 1200px) {
   .candidate-info {
-    margin-top: 2.5em; } }
+    margin-top: 2.5em;
+    margin-left: 3em; } }
+
+.hide {
+  display: none; }
 
 /*# sourceMappingURL=main.css.map */
