@@ -50,7 +50,7 @@ $(function () {
 
     function displayReports(reports) {
         var title = $("<h4>").text("Reports").attr("class", "my-3");
-        $("table").before(title);
+        $("table").before(title).removeClass("hide");
 
         $.each(reports, function (index, report) {
             var reportData = [report.companyName, formatDate(report.interviewDate), report.status];
