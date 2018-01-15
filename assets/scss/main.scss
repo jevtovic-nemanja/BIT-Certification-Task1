@@ -8,7 +8,10 @@ html, body {
     font-size: 100%;
 }
 
+.hide {
+    display: none;
+}
+
 @import "nav";
 @import "list";
 @import "info";
-@import "table";
