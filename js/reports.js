@@ -35,6 +35,18 @@ $(function () {
             });
     }
 
+    function fetchReportDetails(id) {
+        var url = BASE_URL + "reports?q=" + id;
+
+        $.getJSON(url)
+            .done(function (report) {
+                displayReportDetails(report[0]);
+            })
+            .fail(function () {
+                displayErrorMessage($(".modal-error-container"), "Unfortunately, we are unable to load the report details at this time.");
+            });
+    }
+
     function displayCandidate(candidate) {
         var defaultAvatar = "assets/images/avatar.png";
         var image = candidate.avatar
@@ -57,6 +69,10 @@ $(function () {
             var reportId = report.id;
             addTableRow(reportData, reportId);
         })
+    }
+
+    function displayReportDetails(report) {
+        
     }
 
     function displayErrorMessage(element, cause) {
@@ -82,9 +98,9 @@ $(function () {
             "data-id": id,
             "class": "btn w-100 modal-button"
         });
-        viewButton.on("click", function() {
+        viewButton.on("click", function () {
             var reportId = $(this).attr("data-id");
-            sessionStorage.setItem("report", reportId);
+            fetchReportDetails(reportId);
         })
 
         var viewCell = $("<td>").html(viewButton).attr("class", "text-center");
