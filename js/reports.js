@@ -42,7 +42,7 @@ $(function () {
         var errorMessage = $("<h5>");
         errorMessage.text("Looks like there was some kind of error. Don't worry, we're looking into it!")
             .attr("class", "mx-auto text-justify mt-4 p-3");
-        $(".candidate-info").append(errorMessage);
+        $(".error-container").append(errorMessage);
     }
 
 
