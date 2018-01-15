@@ -77,7 +77,7 @@ $(function () {
         var viewButton = $("<button>").html(view).attr({
             "type": "button",
             "data-toggle": "modal",
-            "data-target": "#exampleModal",
+            "data-target": "#modal",
             "class": "btn w-100 modal-button"
         });
         var viewCell = $("<td>").html(viewButton).attr("class", "text-center");
