@@ -67,10 +67,7 @@
                 link.appendChild(card);
                 link.setAttribute("href", "reports.html");
                 link.setAttribute("data-id", candidate.id);
-                link.addEventListener("click", function (event) {
-                    var id = link.getAttribute("data-id");
-                    sessionStorage.setItem("id", id);
-                });
+                setUpLink(link);
 
                 div.appendChild(link);
                 listContainer.appendChild(div);
@@ -78,6 +75,13 @@
         } else {
             displayErrorMessage("No candidates match the search criteria.");
         }
+    }
+
+    function setUpLink(element) {
+        element.addEventListener("click", function (event) {
+            var id = element.getAttribute("data-id");
+            sessionStorage.setItem("id", id);
+        });
     }
 
     function displayErrorMessage(cause) {

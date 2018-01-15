@@ -62,7 +62,8 @@ $(function () {
 
     function displayReports(reports) {
         var title = $("<h4>").text("Reports").attr("class", "my-3");
-        $("table").before(title).removeClass("hide");
+        $("table").before(title);
+        $("table").removeClass("hide");
 
         $.each(reports, function (index, report) {
             var reportData = [report.companyName, formatDate(report.interviewDate), report.status];
@@ -82,8 +83,7 @@ $(function () {
 
     function displayErrorMessage(element, cause) {
         var errorMessage = $("<h5>");
-        errorMessage.text(cause)
-            .attr("class", "mx-auto text-justify mt-4 p-3");
+        errorMessage.text(cause).attr("class", "mx-auto text-justify mt-4 p-3");
         element.append(errorMessage);
     }
 
@@ -103,14 +103,18 @@ $(function () {
             "data-id": id,
             "class": "btn w-100 modal-button"
         });
-        viewButton.on("click", function () {
+        setUpLink(viewButton);
+        var viewCell = $("<td>").html(viewButton).attr("class", "text-center");
+
+        row.append(viewCell);
+        $("tbody").append(row);
+    }
+
+    function setUpLink(element) {
+        $(element).on("click", function () {
             var reportId = $(this).attr("data-id");
             fetchReportDetails(reportId);
         })
-
-        var viewCell = $("<td>").html(viewButton).attr("class", "text-center");
-        row.append(viewCell);
-        $("tbody").append(row);
     }
 
     function formatDate(date) {
