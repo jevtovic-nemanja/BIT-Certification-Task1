@@ -9,4 +9,4 @@ The List of Candidates Page is written in vanilla javaScript (ES5). It uses a ca
 
 The Candidate Reports Page is written using jQuery. This page displays detailed information about a single candidate, including a list of interview reports. When a single report is selected, additional details are shown in a modal dialog.
 
-Technologies used: HTML, SASS, Vanilla JS (ES5), AJAX, jQuery.
+Technologies used: HTML, SASS, Bootstrap, Vanilla JS (ES5), AJAX, jQuery.
