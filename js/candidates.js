@@ -82,16 +82,9 @@
         listContainer.appendChild(errorElement);
     }
 
-    //Add multiple event listeners
-    function addMultipleListeners(element, events, callback) {
-        events.map(function (event) {
-            element.addEventListener(event, callback)
-        })
-    }
-
     //Search candidates
     var searchInput = document.querySelector(".search");
-    addMultipleListeners(searchInput, ["change", "input"], filterList);
+    searchInput.addEventListener("input", filterList);
 
     function filterList() {
         var searchItem = searchInput.value.toLowerCase();
