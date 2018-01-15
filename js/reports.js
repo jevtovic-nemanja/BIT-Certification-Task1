@@ -54,7 +54,8 @@ $(function () {
 
         $.each(reports, function (index, report) {
             var reportData = [report.companyName, formatDate(report.interviewDate), report.status];
-            addTableRow(reportData);
+            var reportId = report.id;
+            addTableRow(reportData, reportId);
         })
     }
 
@@ -65,7 +66,7 @@ $(function () {
         element.append(errorMessage);
     }
 
-    function addTableRow(data) {
+    function addTableRow(data, id) {
         var row = $("<tr>");
 
         $.each(data, function (index, item) {
@@ -78,12 +79,16 @@ $(function () {
             "type": "button",
             "data-toggle": "modal",
             "data-target": "#modal",
+            "data-id": id,
             "class": "btn w-100 modal-button"
         });
-        var viewCell = $("<td>").html(viewButton).attr("class", "text-center");
-        
-        row.append(viewCell);
+        viewButton.on("click", function() {
+            var reportId = $(this).attr("data-id");
+            sessionStorage.setItem("report", reportId);
+        })
 
+        var viewCell = $("<td>").html(viewButton).attr("class", "text-center");
+        row.append(viewCell);
         $("tbody").append(row);
     }
 
