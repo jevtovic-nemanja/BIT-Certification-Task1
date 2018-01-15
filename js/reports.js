@@ -18,12 +18,21 @@ $(function () {
                 displayCandidate(candidate);
             })
             .fail(function () {
-                displayErrorMessage();
+                displayErrorMessage("Looks like there was some kind of error. Don't worry, we're looking into it!");
             });
     }
 
     function fetchReports() {
+        var id = sessionStorage.getItem("id");
+        var url = BASE_URL + "reports?q=" + id;
 
+        $.getJSON(url)
+            .done(function (reports) {
+                displayReports(reports);
+            })
+            .fail(function () {
+                displayErrorMessage("Unfortunately, we are unable to load the reports at this time.");
+            });
     }
 
     function displayCandidate(candidate) {
@@ -38,13 +47,20 @@ $(function () {
         $(".candidate-edu").text(candidate.education);
     }
 
-    function displayErrorMessage() {
+    function displayReports(reports) {
+        if (!reports.length) {
+            displayErrorMessage("There are no reports for this candidate.")
+        } else {
+            console.log(reports);
+        }
+    }
+
+    function displayErrorMessage(cause) {
         var errorMessage = $("<h5>");
-        errorMessage.text("Looks like there was some kind of error. Don't worry, we're looking into it!")
+        errorMessage.text(cause)
             .attr("class", "mx-auto text-justify mt-4 p-3");
         $(".error-container").append(errorMessage);
     }
-
 
     onPageLoad();
 });
