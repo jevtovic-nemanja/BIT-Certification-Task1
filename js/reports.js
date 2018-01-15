@@ -35,6 +35,18 @@ $(function () {
             });
     }
 
+    function fetchReportDetails(id) {
+        var url = BASE_URL + "reports?q=" + id;
+
+        $.getJSON(url)
+            .done(function (report) {
+                displayReportDetails(report[0]);
+            })
+            .fail(function () {
+                displayErrorMessage($(".modal-error-container"), "Unfortunately, we are unable to load the report details at this time.");
+            });
+    }
+
     function displayCandidate(candidate) {
         var defaultAvatar = "assets/images/avatar.png";
         var image = candidate.avatar
@@ -54,8 +66,18 @@ $(function () {
 
         $.each(reports, function (index, report) {
             var reportData = [report.companyName, formatDate(report.interviewDate), report.status];
-            addTableRow(reportData);
+            var reportId = report.id;
+            addTableRow(reportData, reportId);
         })
+    }
+
+    function displayReportDetails(report) {
+        $(".modal-title").text(report.candidateName);
+        $(".company-name").text(report.companyName);
+        $(".interview-date").text(formatDate(report.interviewDate));
+        $(".interview-phase").text(report.phase);
+        $(".interview-status").text(report.status);
+        $(".interview-notes").text(report.note);
     }
 
     function displayErrorMessage(element, cause) {
@@ -65,7 +87,7 @@ $(function () {
         element.append(errorMessage);
     }
 
-    function addTableRow(data) {
+    function addTableRow(data, id) {
         var row = $("<tr>");
 
         $.each(data, function (index, item) {
@@ -73,10 +95,21 @@ $(function () {
             row.append(cell);
         })
 
-        var view = $("<td>").attr("class", "text-center")
-                            .html($("<i>").attr("class", "fa fa-eye"));
-        row.append(view);
+        var view = $("<i>").attr("class", "fa fa-eye");
+        var viewButton = $("<button>").html(view).attr({
+            "type": "button",
+            "data-toggle": "modal",
+            "data-target": "#modal",
+            "data-id": id,
+            "class": "btn w-100 modal-button"
+        });
+        viewButton.on("click", function () {
+            var reportId = $(this).attr("data-id");
+            fetchReportDetails(reportId);
+        })
 
+        var viewCell = $("<td>").html(viewButton).attr("class", "text-center");
+        row.append(viewCell);
         $("tbody").append(row);
     }
 

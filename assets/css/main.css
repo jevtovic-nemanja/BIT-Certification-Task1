@@ -5,6 +5,9 @@ html, body {
   background-color: whitesmoke;
   font-size: 100%; }
 
+.hide {
+  display: none; }
+
 nav {
   background-color: #99d3df;
   color: white; }
@@ -80,7 +83,33 @@ hr {
     margin-top: 2.5em;
     margin-left: 3em; } }
 
-.hide {
-  display: none; }
+.table .thead-light th {
+  background-color: #99d3df;
+  color: white; }
+
+.modal-button {
+  background-color: rgba(0, 0, 0, 0); }
+
+.modal-button:hover {
+  border: 2px solid #88bbd6; }
+
+.modal-button:focus {
+  box-shadow: none; }
+
+.modal-title {
+  color: #88bbd6; }
+  @media screen and (min-width: 992px) {
+    .modal-title {
+      padding-left: 1.5em; } }
+
+.modal-body p {
+  color: #88bbd6; }
+@media screen and (min-width: 992px) {
+  .modal-body {
+    padding-left: 3.5em;
+    padding-right: 3.5em; } }
+
+.interview-notes {
+  color: black !important; }
 
 /*# sourceMappingURL=main.css.map */
