@@ -60,6 +60,7 @@
                 card.appendChild(email);
 
                 link.appendChild(card);
+                link.setAttribute("href", "reports.html");
                 link.setAttribute("data-id", candidate.id);
                 link.addEventListener("click", function(event) {
                     var id = link.getAttribute("data-id");
