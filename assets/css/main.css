@@ -96,4 +96,13 @@ hr {
 .modal-button:focus {
   box-shadow: none; }
 
+.modal-title {
+  color: #88bbd6; }
+
+.modal-body p {
+  color: #88bbd6; }
+
+.interview-notes {
+  color: black !important; }
+
 /*# sourceMappingURL=main.css.map */

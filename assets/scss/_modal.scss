@@ -9,3 +9,17 @@
 .modal-button:focus {
     box-shadow: none;
 }
+
+.modal-title {
+    color: $water;
+}
+
+.modal-body {
+    p {
+        color: $water;
+    }
+}
+
+.interview-notes {
+    color: black !important;
+}
