@@ -31,7 +31,7 @@
     }
 
     function displayCandidates(candidates) {
-        var listContainer = document.querySelector(".listContainer");
+        var listContainer = document.querySelector(".list-container");
         listContainer.innerHTML = "";
 
         if (candidates.length) {
@@ -81,7 +81,7 @@
     }
 
     function displayErrorMessage(cause) {
-        var listContainer = document.querySelector(".listContainer");
+        var listContainer = document.querySelector(".list-container");
         var errorElement = document.createElement("h5");
 
         errorElement.textContent = cause;
