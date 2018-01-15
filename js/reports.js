@@ -72,7 +72,12 @@ $(function () {
     }
 
     function displayReportDetails(report) {
-        
+        $(".modal-title").text(report.candidateName);
+        $(".company-name").text(report.companyName);
+        $(".interview-date").text(formatDate(report.interviewDate));
+        $(".interview-phase").text(report.phase);
+        $(".interview-status").text(report.status);
+        $(".interview-notes").text(report.note);
     }
 
     function displayErrorMessage(element, cause) {
