@@ -5,6 +5,9 @@ html, body {
   background-color: whitesmoke;
   font-size: 100%; }
 
+.hide {
+  display: none; }
+
 nav {
   background-color: #99d3df;
   color: white; }
@@ -80,7 +83,10 @@ hr {
     margin-top: 2.5em;
     margin-left: 3em; } }
 
-.hide {
-  display: none; }
+.modal-button {
+  background-color: rgba(0, 0, 0, 0); }
+
+.modal-button:hover {
+  border: 2px solid black; }
 
 /*# sourceMappingURL=main.css.map */

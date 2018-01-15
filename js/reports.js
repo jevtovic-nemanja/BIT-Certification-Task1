@@ -73,9 +73,15 @@ $(function () {
             row.append(cell);
         })
 
-        var view = $("<td>").attr("class", "text-center")
-                            .html($("<i>").attr("class", "fa fa-eye"));
-        row.append(view);
+        var view = $("<i>").attr("class", "fa fa-eye");
+        var viewButton = $("<button>").html(view).attr({
+            "data-toggle": "modal",
+            "data-target": "#exampleModal",
+            "class": "btn w-100 modal-button"
+        });
+        var viewCell = $("<td>").html(viewButton).attr("class", "text-center");
+        
+        row.append(viewCell);
 
         $("tbody").append(row);
     }
