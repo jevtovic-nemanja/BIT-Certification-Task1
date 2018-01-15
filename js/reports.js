@@ -5,6 +5,11 @@ $(function () {
     }
 
     function fetchData() {
+        fetchCandidateInfo();
+        fetchReports();
+    }
+
+    function fetchCandidateInfo() {
         var id = sessionStorage.getItem("id");
         var url = BASE_URL + "candidates/" + id;
 
@@ -15,6 +20,10 @@ $(function () {
             .fail(function () {
                 displayErrorMessage();
             });
+    }
+
+    function fetchReports() {
+
     }
 
     function displayCandidate(candidate) {
@@ -32,7 +41,7 @@ $(function () {
     function displayErrorMessage() {
         var errorMessage = $("<h5>");
         errorMessage.text("Looks like there was some kind of error. Don't worry, we're looking into it!")
-                    .attr("class", "mx-auto text-justify mt-4 p-3");
+            .attr("class", "mx-auto text-justify mt-4 p-3");
         $(".candidate-info").append(errorMessage);
     }
 
