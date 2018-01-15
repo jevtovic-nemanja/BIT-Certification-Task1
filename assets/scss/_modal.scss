@@ -3,5 +3,9 @@
 }
 
 .modal-button:hover {
-    border: 2px solid black;
+    border: 2px solid $water;
+}
+
+.modal-button:focus {
+    box-shadow: none;
 }

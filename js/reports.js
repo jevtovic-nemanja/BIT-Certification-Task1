@@ -75,6 +75,7 @@ $(function () {
 
         var view = $("<i>").attr("class", "fa fa-eye");
         var viewButton = $("<button>").html(view).attr({
+            "type": "button",
             "data-toggle": "modal",
             "data-target": "#exampleModal",
             "class": "btn w-100 modal-button"

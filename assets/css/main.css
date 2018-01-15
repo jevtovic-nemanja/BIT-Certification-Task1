@@ -83,10 +83,17 @@ hr {
     margin-top: 2.5em;
     margin-left: 3em; } }
 
+.table .thead-light th {
+  background-color: #99d3df;
+  color: white; }
+
 .modal-button {
   background-color: rgba(0, 0, 0, 0); }
 
 .modal-button:hover {
-  border: 2px solid black; }
+  border: 2px solid #88bbd6; }
+
+.modal-button:focus {
+  box-shadow: none; }
 
 /*# sourceMappingURL=main.css.map */
