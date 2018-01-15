@@ -14,7 +14,7 @@ $(function () {
                 displayCandidate(candidate);
             })
             .fail(function () {
-                displayErrorMessage("Looks like there was some kind of error. Don't worry, we're looking into it!");
+                displayErrorMessage($(".candidate-error-container"),"Looks like there was some kind of error. Don't worry, we're looking into it!");
             });
     }
 
@@ -27,7 +27,7 @@ $(function () {
                 displayReports(reports);
             })
             .fail(function () {
-                displayErrorMessage("Unfortunately, we are unable to load the reports at this time.");
+                displayErrorMessage($(".reports-error-container"),"Unfortunately, we are unable to load the reports at this time.");
             });
     }
 
@@ -45,17 +45,17 @@ $(function () {
 
     function displayReports(reports) {
         if (!reports.length) {
-            displayErrorMessage("There are no reports for this candidate.")
+            displayErrorMessage($(".reports-error-container"), "There are no reports for this candidate.")
         } else {
-            console.log(reports);
+            
         }
     }
 
-    function displayErrorMessage(cause) {
+    function displayErrorMessage(element, cause) {
         var errorMessage = $("<h5>");
         errorMessage.text(cause)
             .attr("class", "mx-auto text-justify mt-4 p-3");
-        $(".error-container").append(errorMessage);
+        element.append(errorMessage);
     }
 
     onPageLoad();
