@@ -18,10 +18,14 @@ $(function () {
     }
 
     function displayCandidate(candidate) {
+        var dob = new Date(candidate.birthday);
+        var month = dob.getMonth() + 1;
+        var birthday = dob.getDate() + "." + month + "." + dob.getFullYear();
+
         $(".candidate-img").attr("src", candidate.avatar);
         $(".candidate-name").text(candidate.name);
         $(".candidate-email").text(candidate.email);
-        $(".candidate-dob").text(candidate.birthday);
+        $(".candidate-dob").text(birthday);
         $(".candidate-edu").text(candidate.education);
     }
 
