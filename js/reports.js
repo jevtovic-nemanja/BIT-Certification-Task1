@@ -14,7 +14,7 @@ $(function () {
                 displayCandidate(candidate);
             })
             .fail(function () {
-                displayErrorMessage($(".candidate-error-container"),"Looks like there was some kind of error. Don't worry, we're looking into it!");
+                displayErrorMessage($(".candidate-error-container"), "Looks like there was some kind of error. Don't worry, we're looking into it!");
             });
     }
 
@@ -24,10 +24,14 @@ $(function () {
 
         $.getJSON(url)
             .done(function (reports) {
-                displayReports(reports);
+                if (!reports.length) {
+                    displayErrorMessage($(".reports-error-container"), "There are no reports for this candidate.")
+                } else {
+                    displayReports(reports);
+                }
             })
             .fail(function () {
-                displayErrorMessage($(".reports-error-container"),"Unfortunately, we are unable to load the reports at this time.");
+                displayErrorMessage($(".reports-error-container"), "Unfortunately, we are unable to load the reports at this time.");
             });
     }
 
@@ -44,11 +48,7 @@ $(function () {
     }
 
     function displayReports(reports) {
-        if (!reports.length) {
-            displayErrorMessage($(".reports-error-container"), "There are no reports for this candidate.")
-        } else {
-            
-        }
+        
     }
 
     function displayErrorMessage(element, cause) {
