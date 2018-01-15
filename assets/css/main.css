@@ -48,9 +48,28 @@ hr {
 .candidate-img {
   -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75); }
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+  width: 50%; }
+  @media screen and (min-width: 768px) {
+    .candidate-img {
+      width: 75%; } }
+  @media screen and (min-width: 992px) {
+    .candidate-img {
+      width: 100%; } }
 
 .candidate-info p {
   color: #88bbd6; }
+@media screen and (min-width: 768px) {
+  .candidate-info {
+    margin-top: 1em; } }
+@media screen and (min-width: 992px) {
+  .candidate-info {
+    margin-top: 1.5em; }
+    .candidate-info h5 {
+      margin-top: 1em;
+      margin-bottom: 1.5em !important; } }
+@media screen and (min-width: 1200px) {
+  .candidate-info {
+    margin-top: 2.5em; } }
 
 /*# sourceMappingURL=main.css.map */
