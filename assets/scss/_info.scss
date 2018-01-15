@@ -5,11 +5,19 @@
     width: 50%;
 
     @media screen and (min-width: 768px) {
-        width: 75%;
+        width: 90%;
     }
 
     @media screen and (min-width: 992px) {
         width: 100%;
+    }
+}
+
+.img-position {
+    text-align: center;
+
+    @media screen and (min-width: 768px) {
+        text-align: left;
     }
 }
 
@@ -24,6 +32,7 @@
 
     @media screen and (min-width: 992px) {
         margin-top: 1.5em;
+        margin-left: 0.5em;
         
         h5 {
             margin-top: 1em;
@@ -33,5 +42,6 @@
 
     @media screen and (min-width: 1200px) {
         margin-top: 2.5em;
+        margin-left: 3em;
     }
 }

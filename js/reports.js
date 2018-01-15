@@ -49,7 +49,7 @@ $(function () {
     }
 
     function displayReports(reports) {
-        var title = $("<h4>").text("Reports");
+        var title = $("<h4>").text("Reports").attr("class", "my-3");
         $("table").before(title);
 
         $.each(reports, function (index, report) {
@@ -73,7 +73,8 @@ $(function () {
             row.append(cell);
         })
 
-        var view = $("<td>").html($("<i>").attr("class", "fa fa-eye"));
+        var view = $("<td>").attr("class", "text-center")
+                            .html($("<i>").attr("class", "fa fa-eye"));
         row.append(view);
 
         $("tbody").append(row);
