@@ -35,6 +35,8 @@ nav {
     color: #88bbd6; }
   .listContainer small {
     color: #88bbd6; }
+  .listContainer a {
+    text-decoration: none; }
 
 hr {
   margin: 0; }

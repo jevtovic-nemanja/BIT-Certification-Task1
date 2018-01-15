@@ -32,6 +32,7 @@
         if (candidates.length) {
 
             candidates.map(function (candidate) {
+                var link = document.createElement("a");
                 var div = document.createElement("div");
                 var card = document.createElement("div");
                 var image = document.createElement("img");
@@ -57,7 +58,16 @@
                 card.appendChild(image);
                 card.appendChild(name);
                 card.appendChild(email);
-                div.appendChild(card);
+
+                link.appendChild(card);
+                link.setAttribute("href", "reports.html");
+                link.setAttribute("data-id", candidate.id);
+                link.addEventListener("click", function(event) {
+                    var id = link.getAttribute("data-id");
+                    sessionStorage.setItem("id", id);
+                });
+
+                div.appendChild(link);
                 listContainer.appendChild(div);
             })
         } else {
