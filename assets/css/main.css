@@ -98,9 +98,16 @@ hr {
 
 .modal-title {
   color: #88bbd6; }
+  @media screen and (min-width: 992px) {
+    .modal-title {
+      padding-left: 1.5em; } }
 
 .modal-body p {
   color: #88bbd6; }
+@media screen and (min-width: 992px) {
+  .modal-body {
+    padding-left: 3.5em;
+    padding-right: 3.5em; } }
 
 .interview-notes {
   color: black !important; }

@@ -12,11 +12,20 @@
 
 .modal-title {
     color: $water;
+
+    @media screen and (min-width: 992px) {
+        padding-left: 1.5em;
+    }
 }
 
 .modal-body {
     p {
         color: $water;
+    }
+
+    @media screen and (min-width: 992px) {
+        padding-left: 3.5em;
+        padding-right: 3.5em;
     }
 }
 
