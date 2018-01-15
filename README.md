@@ -1,4 +1,4 @@
-# BIT-Certification-Task1
+# InterviewTracker-Public
 First task for Belgrade Institute of Technology javaScript bootcamp certification.
 
 A responsive public web application, which can be used by anyone, and which is responsible for read-only overview of Candidates and Interview Reports.
