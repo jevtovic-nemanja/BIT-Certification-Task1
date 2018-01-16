@@ -7,7 +7,7 @@ $(function () {
 
     function fetchCandidateInfo() {
         var id = sessionStorage.getItem("id");
-        var url = BASE_URL + "candidates/" + id;
+        var url = BASE_URL + "/candidates/" + id;
 
         $.getJSON(url)
             .done(function (candidate) {
@@ -20,7 +20,7 @@ $(function () {
 
     function fetchReports() {
         var id = sessionStorage.getItem("id");
-        var url = BASE_URL + "reports?q=" + id;
+        var url = BASE_URL + "/reports?q=" + id;
 
         $.getJSON(url)
             .done(function (reports) {
@@ -36,11 +36,13 @@ $(function () {
     }
 
     function fetchReportDetails(id) {
-        var url = BASE_URL + "reports?q=" + id;
+        $(".error").remove();
+
+        var url = BASE_URL + "/reports/" + id;
 
         $.getJSON(url)
             .done(function (report) {
-                displayReportDetails(report[0]);
+                displayReportDetails(report);
             })
             .fail(function () {
                 displayErrorMessage($(".modal-error-container"), "Unfortunately, we are unable to load the report details at this time.");
@@ -83,7 +85,7 @@ $(function () {
 
     function displayErrorMessage(element, cause) {
         var errorMessage = $("<h5>");
-        errorMessage.text(cause).attr("class", "mx-auto text-justify mt-4 p-3");
+        errorMessage.text(cause).attr("class", "mx-auto text-justify mt-4 p-3 error");
         element.append(errorMessage);
     }
 
