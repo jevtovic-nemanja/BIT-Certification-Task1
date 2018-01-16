@@ -36,6 +36,8 @@ $(function () {
     }
 
     function fetchReportDetails(id) {
+        $(".error").remove();
+
         var url = BASE_URL + "/reports/" + id;
 
         $.getJSON(url)
@@ -83,7 +85,7 @@ $(function () {
 
     function displayErrorMessage(element, cause) {
         var errorMessage = $("<h5>");
-        errorMessage.text(cause).attr("class", "mx-auto text-justify mt-4 p-3");
+        errorMessage.text(cause).attr("class", "mx-auto text-justify mt-4 p-3 error");
         element.append(errorMessage);
     }
 
