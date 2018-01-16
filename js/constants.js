@@ -1,1 +1,1 @@
-var BASE_URL = "http://localhost:3333/api/";
+var BASE_URL = "http://localhost:3333/api";
