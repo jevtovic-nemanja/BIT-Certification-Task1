@@ -10,7 +10,7 @@
 
     function fetchData() {
         var request = new XMLHttpRequest();
-        var url = BASE_URL + "candidates";
+        var url = BASE_URL + "/candidates";
         
         request.open("GET", url);
 
