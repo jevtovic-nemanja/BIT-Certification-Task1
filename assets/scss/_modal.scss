@@ -3,7 +3,11 @@
 }
 
 .modal-button:hover {
-    border: 2px solid $water;
+    -webkit-transform:scale(1.4);
+    -moz-transform:scale(1.4);
+    -ms-transform:scale(1.4);
+    -o-transform:scale(1.4);
+    transform:scale(1.4);
 }
 
 .modal-button:focus {
