@@ -48,7 +48,7 @@ hr {
 
 .form-control:focus {
   border-color: #88bbd6;
-  box-shadow: 0 0 0 0.2rem rgba(136, 187, 214, 0.25); }
+  box-shadow: none; }
 
 .candidate-img {
   -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
