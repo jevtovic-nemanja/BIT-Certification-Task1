@@ -31,9 +31,11 @@ nav {
   .list-container .card {
     background-color: #e9e9e9; }
   .list-container .card:hover {
-    -webkit-box-shadow: #88bbd6 0px 0 20px;
-    -moz-box-shadow: #88bbd6 0 0 20px;
-    box-shadow: #88bbd6 0 0 20px; }
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05); }
   .list-container h4 {
     color: #88bbd6; }
   .list-container small {
