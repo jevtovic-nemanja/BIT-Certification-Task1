@@ -36,7 +36,7 @@
 
         if (candidates.length) {
 
-            candidates.map(function (candidate) {
+            candidates.forEach(function (candidate) {
                 var link = document.createElement("a");
                 var div = document.createElement("div");
                 var card = document.createElement("div");
